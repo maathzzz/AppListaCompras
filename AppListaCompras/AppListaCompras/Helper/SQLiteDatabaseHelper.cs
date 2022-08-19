@@ -52,6 +52,10 @@ namespace AppListaCompras.Helper
             return new Produto();
         }
 
+        /**
+         * 
+         */
+
         public Task<List<Produto>> GetAll()
         {
 
