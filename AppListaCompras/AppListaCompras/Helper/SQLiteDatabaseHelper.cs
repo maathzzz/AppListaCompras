@@ -44,26 +44,23 @@ namespace AppListaCompras.Helper
 
             _conn.QueryAsync<Produto>(sql, p.Descricao, p.Quantidade, p.Preco, p.Id);
         }
-        /**
-         * Continuar aqui!
-         */
-        public Task<Produto> GetById(int id)
-        {
-            return new Produto();
-        }
 
         /**
-         * 
-         */
+         * Continuar aqui!      
+         */   
 
         public Task<List<Produto>> GetAll()
         {
-
+            return _conn.Table<Produto>().ToListAsync();
         }
 
-        public void Delete(int id)
-        {
+        /*
+         * faz o delete para cada item na tabela; onde o id do item é igual ao id recebido como parâmetro
+         */
 
+        public Task<int> Delete(int id)
+        {
+            return _conn.Table<Produto>().DeleteAsync(i => i.Id == id);
         }
     }
 }
