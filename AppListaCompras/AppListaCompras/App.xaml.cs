@@ -36,7 +36,11 @@ namespace AppListaCompras
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage());
+            /**
+             * Recurso de navegação entre páginas e defininindo a lista como 
+             * página inicial
+             */
+            MainPage = new NavigationPage(new View.Lista());
         }
 
         protected override void OnStart()
