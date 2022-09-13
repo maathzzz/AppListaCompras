@@ -11,7 +11,7 @@
     <ContentPage.Content>
         <StackLayout>
 
-            <!-- 1:06:07 continuar aqui!-->
+            <!-- 1:34:00 -->
             
             <SearchBar x:Name="txt_procurar" Placeholder="Digite o nome do produto"/>
 
@@ -19,24 +19,26 @@
                 <ListView x:Name="lst_produtos">
                     <ListView.Header>
                         <Grid RowDefinitions="Auto"
-                              ColumnDefinitions="*, Auto, Auto">
+                              ColumnDefinitions="*, Auto, Auto"> 
                             <Label Grid.Row="0" Grid.Column="0" Text="Descrição" />
                             <Label Grid.Row="0" Grid.Column="1" Text="Qnt" />
                             <Label Grid.Row="0" Grid.Column="2" Text="Preço" />
                         </Grid>
                     </ListView.Header>
+                    
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
+                                <!-- Apertou e segurou o item abre a barra para remoção do item -->
                                 <ViewCell.ContextActions>
                                     <MenuItem Text="Remover" Clicked="MenuItem_Clicked" />
                                 </ViewCell.ContextActions>
 
                                 <Grid RowDefinitions="Auto"
                                       ColumnDefinitions="*, Auto, Auto">
-                                    <Label Grid.Row="0" Grid.Column="0" Text="{Binding Descricao}" />
-                                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding Quantidade}" />
-                                    <Label Grid.Row="0" Grid.Column="2" Text="{Binding Preco}" />
+                                      <Label Grid.Row="0" Grid.Column="0" Text="{Binding Descricao}" />
+                                      <Label Grid.Row="0" Grid.Column="1" Text="{Binding Quantidade}" />
+                                      <Label Grid.Row="0" Grid.Column="2" Text="{Binding Preco}" />
                                 </Grid>
                             </ViewCell>
                         </DataTemplate>
