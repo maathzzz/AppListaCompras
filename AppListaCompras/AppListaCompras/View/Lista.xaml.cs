@@ -92,5 +92,38 @@ namespace AppListaCompras.View
             }
 
         }
+
+        private void txt_procurar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string produto_buscado = e.NewTextValue;
+
+            // Buscando produto 
+            System.Threading.Tasks.Task.Run(async () =>
+            {
+                List<Produto> temp = await App.Database.Search(produto_buscado);
+
+                // Limpa a lista e mostra somente o item buscado
+                lista_produtos.Clear();
+
+                foreach (Produto item in temp)
+                {
+                    lista_produtos.Add(item);
+                }
+
+                carregando.IsRefreshing = false;
+
+            });
+
+        }
+
+        private void lst_produtos_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            // Navegando para outra página
+            Navigation.PushAsync(new EditarProduto
+            {
+                BindingContext = (Produto)e.SelectedItem
+
+            });
+        }
     }
 }

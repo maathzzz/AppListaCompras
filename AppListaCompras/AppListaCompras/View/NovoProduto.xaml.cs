@@ -30,7 +30,7 @@ namespace AppListaCompras.View
                     Preco = Convert.ToDouble(txt_preco.Text),
                 };
 
-                App.Database.Insert(p);
+                await App.Database.Insert(p);
 
                 await DisplayAlert("Sucesso!", "Produto Cadastrado", "OK");
 

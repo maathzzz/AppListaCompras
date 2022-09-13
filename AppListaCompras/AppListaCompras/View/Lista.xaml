@@ -10,13 +10,12 @@
     
     <ContentPage.Content>
         <StackLayout>
-
-            <!-- 1:34:00 -->
-            
-            <SearchBar x:Name="txt_procurar" Placeholder="Digite o nome do produto"/>
+            <SearchBar x:Name="txt_procurar" 
+                       Placeholder="Digite o nome do produto"
+                       TextChanged="txt_procurar_TextChanged"/>
 
             <RefreshView x:Name="carregando" IsRefreshing="True">
-                <ListView x:Name="lst_produtos">
+                <ListView x:Name="lst_produtos" ItemSelected="lst_produtos_ItemSelected">
                     <ListView.Header>
                         <Grid RowDefinitions="Auto"
                               ColumnDefinitions="*, Auto, Auto"> 
